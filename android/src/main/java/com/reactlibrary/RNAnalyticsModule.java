@@ -8,6 +8,8 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReadableMap;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 
 public class RNAnalyticsModule extends ReactContextBaseJavaModule {
 
@@ -104,11 +106,10 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public String getChannel(){
         try {
-            PackageManager pm = getPackageManager();
-            ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            PackageManager pm = reactContext.getPackageManager();
+            ApplicationInfo appInfo = pm.getApplicationInfo(reactContext.getPackageName(), PackageManager.GET_META_DATA);
             return appInfo.metaData.getString("BaiduMobAd_CHANNEL");
         } catch (PackageManager.NameNotFoundException ignored) {
-            return null;
         }
         return null;
   }

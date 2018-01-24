@@ -1,6 +1,6 @@
 {
-  "name": "react-native-baidu-analytics",
-  "version": "1.0.2",
+  "name": "react-native-leto-baidumjt",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,9 +8,12 @@
   },
   "keywords": [
     "react-native",
-    "baidu",
-    "analytics"
+    "leto",
+    "baidumjt"
   ],
-  "author": "lzw",
+   "author": {
+    "name": "blakefangqi",
+    "email": "fffffangqi@gmail.com"
+  },
   "license": "MIT"
 }
