@@ -109,7 +109,9 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
         try {
             PackageManager pm = reactContext.getPackageManager();
             ApplicationInfo appInfo = pm.getApplicationInfo(reactContext.getPackageName(), PackageManager.GET_META_DATA);
+            if(appInfo.metaData!=null)
             return appInfo.metaData.getString("BaiduMobAd_CHANNEL");
+          return null;
         } catch (PackageManager.NameNotFoundException ignored) {
         }
         return null;
