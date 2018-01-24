@@ -26,37 +26,6 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
   }
 
 
-  @ReactMethod
-  public void start(ReadableMap options) {
-    if(options == null){
-      StatService.start(this.reactContext);
-    } else {
-      StatService.setAppKey(options.getString("appKey"));
-
-      String appChannel=options.getString("appChannel");
-    if(appChannel != null) {
-      StatService.setAppChannel(this.reactContext,appChannel, true);
-    } else {
-      StatService.setAppChannel(this.reactContext,"", false);
-    }
-      StatService.setDebugOn(options.getBoolean("isDebug"));
-
-      if(options.getBoolean("enableExceptionLog")){
-        StatService.setOn(this.reactContext, StatService.EXCEPTION_LOG);
-      }
-
-      StatService.setSessionTimeOut(options.getInt("sessionTimeOut"));
-      StatService.setLogSenderDelayed(options.getInt("logSenderDelayed"));
-
-      SendStrategyEnum sendStrategy = SendStrategyEnum.valueOf(options.getString("sendStrategy"));
-
-      if(sendStrategy != null) {
-        boolean onlyWifi = options.getBoolean("onlyWifi");
-        int logSendInterval = options.getInt("logSendInterval");
-        StatService.setSendLogStrategy(this.reactContext, sendStrategy, logSendInterval, onlyWifi);
-      }
-    }
-  }
     @ReactMethod
   public void start(ReadableMap options) {
     if(options == null){
