@@ -33,8 +33,8 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
     } else {
       StatService.setAppKey(options.getString("appKey"));
 
-          String appChannel=options.getString("appChannel");
-    if(appChannel != null) {
+          String appChannel=options.getString("appChannel");     
+    if(appChannel != null&&appChannel !="") {
       StatService.setAppChannel(this.reactContext,appChannel, true);
     } else {
       StatService.setAppChannel(this.reactContext,"", false);
