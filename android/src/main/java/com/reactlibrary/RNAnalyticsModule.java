@@ -61,6 +61,16 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void onPageResume() {
+    StatService.onResume(this.reactContext);
+  }
+
+  @ReactMethod
+  public void onPagePause() {
+    StatService.onPause (this.reactContext);
+  }
+
+  @ReactMethod
   public void setDebugOn(Boolean isDebug) {
     StatService.setDebugOn(isDebug);
   }
