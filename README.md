@@ -3,11 +3,11 @@
 
 ## Getting started
 
-`$ npm install react-native-baidu-analytics --save`
+`$ npm install react-native-leto-baidumjt --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-baidu-analytics`
+`$ react-native link react-native-leto-baidumjt`
 
 ### Manual installation
 
