@@ -30,7 +30,13 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
       StatService.start(this.reactContext);
     } else {
       StatService.setAppKey(options.getString("appKey"));
-      StatService.setAppChannel(this.reactContext, "", false);
+
+      String appChannel=options.getString("appChannel");
+    if(appChannel != null) {
+      StatService.setAppChannel(this.reactContext,appChannel, true);
+    } else {
+      StatService.setAppChannel(this.reactContext,"", false);
+    }
       StatService.setDebugOn(options.getBoolean("isDebug"));
 
       if(options.getBoolean("enableExceptionLog")){
@@ -93,6 +99,18 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void onEventDuration(String eventId, String label, Integer milliseconds) {
     StatService.onEventDuration(this.reactContext, eventId, label, milliseconds.longValue());
+  }
+
+  @ReactMethod
+  public String getChannel(){
+        try {
+            PackageManager pm = getPackageManager();
+            ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            return appInfo.metaData.getString("BaiduMobAd_CHANNEL");
+        } catch (PackageManager.NameNotFoundException ignored) {
+            return null;
+        }
+        return null;
   }
 
 
