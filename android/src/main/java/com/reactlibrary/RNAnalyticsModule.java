@@ -130,7 +130,7 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
     public String getSpChannel() {
         SharedPreferences sp = reactContext.
         getSharedPreferences("BaiduMobAd_CHANNEL", Context.MODE_PRIVATE);
-        String channel = sp.getString("channel");
+        String channel = sp.getString("channel","");
         return channel;
     }
     
