@@ -15,6 +15,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RNAnalyticsModule extends ReactContextBaseJavaModule {
     
     private final ReactApplicationContext reactContext;
@@ -102,12 +105,28 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
     public void onEventEnd(String eventId, String label) {
         StatService.onEventEnd(this.reactContext, eventId, label);
     }
+    @ReactMethod
+    public void onEventWithAttributes(String eventId, String label, ReadableMap attributes) {
+        StatService.onEvent(this.reactContext, eventId, label, 1, toStringHashMap(attributes));
+    }
     
     @ReactMethod
     public void onEventDuration(String eventId, String label, Integer milliseconds) {
         StatService.onEventDuration(this.reactContext, eventId, label, milliseconds.longValue());
     }
-    
+
+    private HashMap<String, String> toStringHashMap(ReadableMap source) {
+        if (source == null) {
+            return null;
+        }
+        HashMap<String, String> result = new HashMap<>();
+        for (Map.Entry<String, Object> entry : source.toHashMap().entrySet()) {
+            if (entry.getValue() instanceof String) {
+                result.put(entry.getKey(), (String) entry.getValue());
+            }
+        }
+        return result;
+    }
     public String getChannelFromAPK() {
         try {
             PackageManager pm = reactContext.getPackageManager();

@@ -23,7 +23,7 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options) {
     
     statTracker.sessionResumeInterval = [[options objectForKey:@"sessionTimeOut"] integerValue];
     
-
+    
     
     BaiduMobStatLogStrategy* logStrategy;
     NSString* type = [options objectForKey:@"sendStrategy"];
@@ -53,7 +53,7 @@ RCT_EXPORT_METHOD(setDebugOn:(bool *)isDebug) {
 }
 
 RCT_EXPORT_METHOD(onEvent:(NSString *)eventId eventLabel:(NSString *)eventLabel) {
-     [[BaiduMobStat defaultStat] logEvent:eventId eventLabel:eventLabel];
+    [[BaiduMobStat defaultStat] logEvent:eventId eventLabel:eventLabel];
 }
 
 RCT_EXPORT_METHOD(onEventStart:(NSString *)eventId eventLabel:(NSString *)eventLabel) {
@@ -67,6 +67,8 @@ RCT_EXPORT_METHOD(onEventEnd:(NSString *)eventId eventLabel:(NSString *)eventLab
 RCT_EXPORT_METHOD(onEventDuration:(NSString *)eventId eventLabel:(NSString *)eventLabel durationTime:(unsigned long)duration) {
     [[BaiduMobStat defaultStat] logEventWithDurationTime:eventLabel eventLabel:eventLabel durationTime:duration];
 }
-
+RCT_EXPORT_METHOD(onEventWithAttributes:(NSString *)eventId eventLabel:(NSString *)eventLabel attributes:(NSDictionary *)attributes) {
+    [[BaiduMobStat defaultStat] logEvent:eventId eventLabel:eventLabel attributes:attributes];
+}
 @end
-  
+
