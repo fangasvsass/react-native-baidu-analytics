@@ -3,7 +3,7 @@
 
 ## Getting started
 
-`$ npm install react-native-leto-baidumjt --save`
+`$ npm install react-native-letote-baidumjt --save`
 
 ### Mostly automatic installation
 
@@ -82,6 +82,7 @@ Android： com.baidu.mobstat:mtj-sdk:latest.integration
 * onEvent(String eventId, String label)
 * onEventEnd(String eventId, String label)
 * onEventDuration(String eventId, String label, long milliseconds)
+* onEventWithAttributes(String eventId, String label, ReadableMap attributes)
 
 
 ## Usage
