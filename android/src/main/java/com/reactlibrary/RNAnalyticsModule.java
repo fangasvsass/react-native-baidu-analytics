@@ -117,6 +117,11 @@ public class RNAnalyticsModule extends ReactContextBaseJavaModule {
     StatService.onEventDuration(this.reactContext, eventId, label, milliseconds.longValue());
   }
 
+  @ReactMethod
+  public void onEventDurationWithAttributes(String eventId, String label, Integer milliseconds,ReadableMap attributes){
+    StatService.onEventDuration(this.reactContext, eventId, label, milliseconds.longValue(),toStringHashMap(attributes));
+  }
+
   private HashMap<String, String> toStringHashMap(ReadableMap source) {
     if (source == null) {
       return null;
