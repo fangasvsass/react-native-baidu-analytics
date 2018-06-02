@@ -28,6 +28,6 @@ allprojects {
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
-    compile 'com.baidu.mobstat:mtj-sdk:latest.integration'
+    compile 'com.baidu.mobstat:mtj-sdk:3.8.2.1'
 }
   
