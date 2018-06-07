@@ -65,13 +65,22 @@ RCT_EXPORT_METHOD(onEventEnd:(NSString *)eventId eventLabel:(NSString *)eventLab
 }
 
 RCT_EXPORT_METHOD(onEventDuration:(NSString *)eventId eventLabel:(NSString *)eventLabel durationTime:(id)duration) {
-    [[BaiduMobStat defaultStat] logEventWithDurationTime:eventLabel eventLabel:eventLabel durationTime:[duration unsignedLongValue]];
+    @try{
+        [[BaiduMobStat defaultStat] logEventWithDurationTime:eventLabel eventLabel:eventLabel durationTime:[duration unsignedLongValue]];
+    }@catch(NSException *exception){
+    }@finally{
+    }
 }
 RCT_EXPORT_METHOD(onEventDurationWithAttributes:(NSString *)eventId eventLabel:(NSString *)eventLabel durationTime:(id)duration attributes:(NSDictionary *)attributes) {
-    [[BaiduMobStat defaultStat] logEventWithDurationTime:eventId eventLabel:eventLabel durationTime:[duration unsignedLongValue] attributes:attributes];
+    @try{
+        [[BaiduMobStat defaultStat] logEventWithDurationTime:eventId eventLabel:eventLabel durationTime:[duration unsignedLongValue] attributes:attributes];
+    }@catch(NSException *exception){
+    }@finally{
+    }
 }
 RCT_EXPORT_METHOD(onEventWithAttributes:(NSString *)eventId eventLabel:(NSString *)eventLabel attributes:(NSDictionary *)attributes) {
     [[BaiduMobStat defaultStat] logEvent:eventId eventLabel:eventLabel attributes:attributes];
 }
 @end
+
 
