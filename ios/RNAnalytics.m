@@ -57,21 +57,21 @@ RCT_EXPORT_METHOD(onEvent:(NSString *)eventId eventLabel:(NSString *)eventLabel)
 }
 
 RCT_EXPORT_METHOD(onEventStart:(NSString *)eventId eventLabel:(NSString *)eventLabel) {
-    [[BaiduMobStat defaultStat] eventStart:eventLabel eventLabel:eventLabel];
+    [[BaiduMobStat defaultStat] eventStart:eventId eventLabel:eventLabel];
 }
 
 RCT_EXPORT_METHOD(onEventEnd:(NSString *)eventId eventLabel:(NSString *)eventLabel) {
-    [[BaiduMobStat defaultStat] eventEnd:eventLabel eventLabel:eventLabel];
+    [[BaiduMobStat defaultStat] eventEnd:eventId eventLabel:eventLabel];
 }
 
-RCT_EXPORT_METHOD(onEventDuration:(NSString *)eventId eventLabel:(NSString *)eventLabel durationTime:(id)duration) {
+RCT_EXPORT_METHOD(onEventDuration:(NSString *)eventId eventLabel:(NSString *)eventLabel durationTime:(nonnull NSNumber *)duration) {
     @try{
-        [[BaiduMobStat defaultStat] logEventWithDurationTime:eventLabel eventLabel:eventLabel durationTime:[duration unsignedLongValue]];
+          [[BaiduMobStat defaultStat] logEventWithDurationTime:eventId eventLabel:eventLabel durationTime:[duration unsignedLongValue]];
     }@catch(NSException *exception){
     }@finally{
     }
 }
-RCT_EXPORT_METHOD(onEventDurationWithAttributes:(NSString *)eventId eventLabel:(NSString *)eventLabel durationTime:(id)duration attributes:(NSDictionary *)attributes) {
+RCT_EXPORT_METHOD(onEventDurationWithAttributes:(NSString *)eventId eventLabel:(NSString *)eventLabel durationTime:(nonnull NSNumber *)duration attributes:(NSDictionary *)attributes) {
     @try{
         [[BaiduMobStat defaultStat] logEventWithDurationTime:eventId eventLabel:eventLabel durationTime:[duration unsignedLongValue] attributes:attributes];
     }@catch(NSException *exception){
