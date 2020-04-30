@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNAnalytics"
-  s.version      = "1.2.0"
+  s.version      = "1.7.0"
   s.summary      = "RNAnalytics"
   s.description  = <<-DESC
                   RNAnalytics
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.source_files  = "ios/**/*.{h,m}"
   s.requires_arc = true
 
-
+  s.vendored_libraries = "ios/libBaiduMobStat.a"
   s.dependency "React"
   #s.dependency "others"
 
