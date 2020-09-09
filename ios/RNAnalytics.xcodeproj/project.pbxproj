@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7051E1061E5C29B300D29C26 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7051E1051E5C29B300D29C26 /* libBaiduMobStat.a */; };
 		B3E7B58A1CC2AC0600A0062D /* RNAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNAnalytics.m */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNAnalytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAnalytics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7051E1041E5C29B300D29C26 /* BaiduMobStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
-		7051E1051E5C29B300D29C26 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAnalytics.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAnalytics.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -36,7 +34,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7051E1061E5C29B300D29C26 /* libBaiduMobStat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				7051E1041E5C29B300D29C26 /* BaiduMobStat.h */,
-				7051E1051E5C29B300D29C26 /* libBaiduMobStat.a */,
 				B3E7B5881CC2AC0600A0062D /* RNAnalytics.h */,
 				B3E7B5891CC2AC0600A0062D /* RNAnalytics.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -101,6 +97,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
